@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import isRequiredForA11y from 'tinper-bee-core/lib/isRequiredForA11y';
+import classnames from 'classnames';
 
 
 const propTypes = {
