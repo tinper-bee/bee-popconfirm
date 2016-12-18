@@ -37,8 +37,10 @@
     "tinper-bee-core": "latest"
   },
   "devDependencies": {
-    "bee-button": "^0.1.4",
+    "bee-button": "^0.1.8",
+    "bee-layout": "^0.1.2",
     "bee-overlay": "0.0.19",
+    "bee-panel": "0.0.4",
     "bee-transition": "0.0.1",
     "chai": "^3.5.0",
     "console-polyfill": "~0.2.1",
