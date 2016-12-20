@@ -51,7 +51,7 @@ import "./node_modules/bee-popconfirm/build/Popconfirm.css"
 ## API
 
 |参数|说明|类型|默认值|
-|:--|:---:|:--:|---:|
+|:---|:-----|:----|:------|
 |id|标示弹出层|string/number|-|
 |placement|弹出位置|top/left/right/bottom|right|
 |positionTop|弹出框向上偏移量|string/number|-|
