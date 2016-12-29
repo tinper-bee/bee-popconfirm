@@ -4,12 +4,12 @@
 $popover-max-width: 300px;
 $zIndex-popover: 1540;
 $popover-margin: 10px;
-$popover-title-bg: #f7f7f7;
-$popover-border-color: #ccc;
+$popover-title-bg: #fff;
+$popover-border-color: $brand-primary;
 $popover-arrow-width: 10px;
-$popover-arrow-color: #999;
+$popover-arrow-color: $brand-primary;
 $popover-arrow-outer-width: ;
-$popover-arrow-outer-color: #999;
+$popover-arrow-outer-color: $brand-primary;
 
 $popover-fallback-border-color: #fff;
 
@@ -64,7 +64,7 @@ $popover-fallback-border-color: #fff;
     margin-top: -11px;
     border-left-width: 0;
     border-right-color: $popover-arrow-outer-color;
-    border-right-color: rgba(0,0,0,.25);
+    border-right-color: $brand-primary;
 }
 
 .u-popover.left>.arrow {
@@ -73,7 +73,7 @@ $popover-fallback-border-color: #fff;
     margin-top: -11px;
     border-right-width: 0;
     border-left-color: $popover-arrow-outer-color;
-    border-left-color: rgba(0,0,0,.25);
+    border-left-color: $brand-primary;
 }
 
 .u-popover.top>.arrow {
@@ -81,7 +81,7 @@ $popover-fallback-border-color: #fff;
     margin-left: -11px;
     border-bottom-width: 0;
     border-top-color: $popover-arrow-outer-color;
-    border-top-color: rgba(0,0,0,.25);
+    border-top-color:$brand-primary;
     bottom: -11px;
 }
 
@@ -90,7 +90,7 @@ $popover-fallback-border-color: #fff;
     margin-left: -11px;
     border-top-width: 0;
     border-bottom-color: $popover-arrow-outer-color;
-    border-bottom-color: rgba(0,0,0,.25);
+    border-bottom-color: $brand-primary;
     top: -11px;
 }
 
@@ -144,17 +144,15 @@ $popover-fallback-border-color: #fff;
     border-bottom-color: $popover-fallback-border-color;
 }
 
-.u-popover-title {
-    margin: 0;
-    padding: 8px 14px;
-    font-size: 14px;
-    background-color: $popover-title-bg;
-    border-bottom: 1px solid $popover-border-color;
-    border-radius: 5px 5px 0 0;
-}
 
 .u-popover-content {
-    padding: 9px 14px;
+    padding: 15px;
+}
+.u-popover-confirm {
+    button {
+        float: right;
+        margin-right: 10px;
+    }
 }
 
 .u-popover .u-button{

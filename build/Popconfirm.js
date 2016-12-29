@@ -1,28 +1,26 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _isRequiredForA11y = require('tinper-bee-core/lib/isRequiredForA11y');
+var _Confirm = require('./Confirm');
 
-var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
+var _Confirm2 = _interopRequireDefault(_Confirm);
+
+var _OverlayTrigger = require('bee-overlay/build/OverlayTrigger');
+
+var _OverlayTrigger2 = _interopRequireDefault(_OverlayTrigger);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -32,114 +30,77 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var propTypes = {
-  /**
-   * An html id attribute, necessary for accessibility
-   * @type {string}
-   * @required
-   */
-  id: (0, _isRequiredForA11y2["default"])(_react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.string, _react2["default"].PropTypes.number])),
+var Popconfirm = function (_React$Component) {
+    _inherits(Popconfirm, _React$Component);
 
-  /**
-   * Sets the direction the Popover is positioned towards.
-   */
-  placement: _react2["default"].PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    function Popconfirm(props) {
+        _classCallCheck(this, Popconfirm);
 
-  /**
-   * The "top" position value for the Popover.
-   */
-  positionTop: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
-  /**
-   * The "left" position value for the Popover.
-   */
-  positionLeft: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
+        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
 
-  /**
-   * The "top" position value for the Popover arrow.
-   */
-  arrowOffsetTop: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
-  /**
-   * The "left" position value for the Popover arrow.
-   */
-  arrowOffsetLeft: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
+        _this.state = {
+            show: false
+        };
+        _this.handleClose = _this.handleClose.bind(_this);
+        _this.handleCancel = _this.handleCancel.bind(_this);
+        return _this;
+    }
 
-  /**
-   * Title content
-   */
-  title: _react2["default"].PropTypes.node
-};
+    Popconfirm.prototype.handleClose = function handleClose() {
+        var onClose = this.props.onClose;
 
-var defaultProps = {
-  placement: 'right',
-  clsPrefix: 'u-popover'
-};
-
-var Popover = function (_React$Component) {
-  _inherits(Popover, _React$Component);
-
-  function Popover() {
-    _classCallCheck(this, Popover);
-
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  Popover.prototype.render = function render() {
-    var _classes;
-
-    var _props = this.props,
-        placement = _props.placement,
-        positionTop = _props.positionTop,
-        positionLeft = _props.positionLeft,
-        arrowOffsetTop = _props.arrowOffsetTop,
-        arrowOffsetLeft = _props.arrowOffsetLeft,
-        clsPrefix = _props.clsPrefix,
-        title = _props.title,
-        className = _props.className,
-        style = _props.style,
-        children = _props.children,
-        props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'title', 'className', 'style', 'children']);
-
-    //const [bsProps, elementProps] = splitBsProps(props);
-
-    var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, placement, true), _classes);
-
-    var outerStyle = _extends({
-      display: 'block',
-      top: positionTop,
-      left: positionLeft
-    }, style);
-
-    var arrowStyle = {
-      top: arrowOffsetTop,
-      left: arrowOffsetLeft
+        this.setState({
+            show: false
+        });
+        console.log(this.state.show);
+        onClose && onClose();
     };
 
-    return _react2["default"].createElement(
-      'div',
-      _extends({}, props, {
-        role: 'tooltip',
-        className: (0, _classnames2["default"])(className, classes),
-        style: outerStyle
-      }),
-      _react2["default"].createElement('div', { className: 'arrow', style: arrowStyle }),
-      title && _react2["default"].createElement(
-        'h3',
-        { className: (0, _classnames2["default"])(clsPrefix + '-title') },
-        title
-      ),
-      _react2["default"].createElement(
-        'div',
-        { className: (0, _classnames2["default"])(clsPrefix + '-content') },
-        children
-      )
-    );
-  };
+    Popconfirm.prototype.handleCancel = function handleCancel() {
+        var onCancel = this.props.onCancel;
 
-  return Popover;
+        this.setState({
+            show: false
+        });
+        console.log(this.state.show);
+        onCancel && onCancel();
+    };
+
+    Popconfirm.prototype.render = function render() {
+        var _props = this.props,
+            placement = _props.placement,
+            children = _props.children,
+            rootClose = _props.rootClose,
+            onClose = _props.onClose,
+            onCancel = _props.onCancel,
+            content = _props.content,
+            trigger = _props.trigger,
+            props = _objectWithoutProperties(_props, ['placement', 'children', 'rootClose', 'onClose', 'onCancel', 'content', 'trigger']);
+
+        var overlay = _react2["default"].createElement(
+            _Confirm2["default"],
+            _extends({}, props, {
+                onClose: this.handleClose,
+                onCancel: this.handleCancel,
+                placement: placement }),
+            content
+        );
+        console.log(this.state.show);
+
+        return _react2["default"].createElement(
+            _OverlayTrigger2["default"],
+            {
+                rootClose: rootClose,
+                trigger: trigger,
+                placement: placement,
+                overlay: overlay,
+                show: this.state.show },
+            children
+        );
+    };
+
+    return Popconfirm;
 }(_react2["default"].Component);
 
-Popover.propTypes = propTypes;
-Popover.defaultProps = defaultProps;
-
-exports["default"] = Popover;
+exports["default"] = Popconfirm;
 module.exports = exports['default'];

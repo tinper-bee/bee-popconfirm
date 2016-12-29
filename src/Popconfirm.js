@@ -1,120 +1,73 @@
-import classNames from 'classnames';
+
 import React from 'react';
-import isRequiredForA11y from 'tinper-bee-core/lib/isRequiredForA11y';
-import classnames from 'classnames';
+import Confirm from './Confirm';
+import OverlayTrigger from 'bee-overlay/build/OverlayTrigger';
 
 
-const propTypes = {
-  /**
-   * An html id attribute, necessary for accessibility
-   * @type {string}
-   * @required
-   */
-  id: isRequiredForA11y(React.PropTypes.oneOfType([
-    React.PropTypes.string, React.PropTypes.number,
-  ])),
 
-  /**
-   * Sets the direction the Popover is positioned towards.
-   */
-  placement: React.PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 
-  /**
-   * The "top" position value for the Popover.
-   */
-  positionTop: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
-  ]),
-  /**
-   * The "left" position value for the Popover.
-   */
-  positionLeft: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
-  ]),
-
-  /**
-   * The "top" position value for the Popover arrow.
-   */
-  arrowOffsetTop: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
-  ]),
-  /**
-   * The "left" position value for the Popover arrow.
-   */
-  arrowOffsetLeft: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
-  ]),
-
-  /**
-   * Title content
-   */
-  title: React.PropTypes.node,
-};
-
-const defaultProps = {
-  placement: 'right',
-  clsPrefix: 'u-popover'
-};
-
-class Popover extends React.Component {
+class Popconfirm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            show: false
+        }
+        this.handleClose = this.handleClose.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+    }
+    handleClose () {
+        const { onClose } = this.props;
+        this.setState({
+            show: false
+        });
+            console.log(this.state.show);
+        onClose && onClose();
+    }
+    handleCancel () {
+        const { onCancel } = this.props;
+        this.setState({
+            show: false
+        })
+            console.log(this.state.show);
+        onCancel && onCancel();
+    }
   render() {
     const {
       placement,
-      positionTop,
-      positionLeft,
-      arrowOffsetTop,
-      arrowOffsetLeft,
-      clsPrefix,
-      title,
-      className,
-      style,
       children,
+      rootClose,
+      onClose,
+      onCancel,
+      content,
+      trigger,
       ...props
     } = this.props;
 
-    //const [bsProps, elementProps] = splitBsProps(props);
 
-    const classes = {
-        [`${clsPrefix}`]: true,
-        [placement]: true,
-    };
 
-    const outerStyle = {
-      display: 'block',
-      top: positionTop,
-      left: positionLeft,
-      ...style,
-    };
-
-    const arrowStyle = {
-      top: arrowOffsetTop,
-      left: arrowOffsetLeft,
-    };
+    const overlay = (
+        <Confirm
+        {...props}
+        onClose={ this.handleClose}
+        onCancel= {this.handleCancel}
+        placement={placement}>
+            { content }
+        </Confirm>
+    )
+    console.log(this.state.show)
 
     return (
-      <div
-        {...props}
-        role="tooltip"
-        className={classNames(className, classes)}
-        style={outerStyle}
-      >
-        <div className="arrow" style={arrowStyle} />
-
-        {title && (
-          <h3 className={classnames(`${clsPrefix}-title`)}>
-            {title}
-          </h3>
-        )}
-
-        <div className={classnames(`${clsPrefix}-content`)}>
-          {children}
-        </div>
-      </div>
+        <OverlayTrigger
+        rootClose={rootClose}
+        trigger={trigger}
+        placement={placement}
+        overlay={overlay}
+        show = {this.state.show}>
+          { children }
+        </OverlayTrigger>
     );
   }
 }
 
-Popover.propTypes = propTypes;
-Popover.defaultProps = defaultProps;
 
-export default Popover;
+export default Popconfirm;
