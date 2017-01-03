@@ -76,12 +76,13 @@ var propTypes = {
    */
   title: _react2["default"].PropTypes.node,
   onClose: _react2["default"].PropTypes.func,
-  onCancel: _react2["default"].PropTypes.func
+  onCancel: _react2["default"].PropTypes.func,
+  color: _react2["default"].PropTypes.oneOf(['dark'])
 };
 
 var defaultProps = {
   placement: 'right',
-  clsPrefix: 'u-popover',
+  clsPrefix: 'u-popconfirm',
   locale: 'zh-cn'
 };
 
@@ -110,14 +111,15 @@ var Confirm = function (_React$Component) {
         children = _props.children,
         locale = _props.locale,
         onClose = _props.onClose,
+        color = _props.color,
         onCancel = _props.onCancel,
-        props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'onCancel']);
+        props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
 
     var local = _i18n2["default"][locale];
 
     //const [bsProps, elementProps] = splitBsProps(props);
 
-    var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, placement, true), _classes);
+    var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, placement, true), _defineProperty(_classes, clsPrefix + '-' + color, color), _classes);
 
     var outerStyle = _extends({
       display: 'block',
@@ -148,13 +150,13 @@ var Confirm = function (_React$Component) {
         { className: (0, _classnames2["default"])(clsPrefix + '-confirm') },
         _react2["default"].createElement(
           _beeButton2["default"],
-          { onClick: onClose, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
-          local['ok']
+          { onClick: onCancel, size: 'sm', style: { minWidth: 50 }, shape: 'border' },
+          local['cancel']
         ),
         _react2["default"].createElement(
           _beeButton2["default"],
-          { onClick: onCancel, size: 'sm', style: { minWidth: 50 }, shape: 'border' },
-          local['cancel']
+          { onClick: onClose, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
+          local['ok']
         )
       )
     );

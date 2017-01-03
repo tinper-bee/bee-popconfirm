@@ -53,11 +53,12 @@ const propTypes = {
   title: React.PropTypes.node,
   onClose: React.PropTypes.func,
   onCancel: React.PropTypes.func,
+  color: React.PropTypes.oneOf(['dark']),
 };
 
 const defaultProps = {
   placement: 'right',
-  clsPrefix: 'u-popover',
+  clsPrefix: 'u-popconfirm',
   locale: 'zh-cn'
 };
 
@@ -79,6 +80,7 @@ class Confirm extends React.Component {
       children,
       locale,
       onClose,
+      color,
       onCancel,
       ...props
     } = this.props;
@@ -90,6 +92,7 @@ class Confirm extends React.Component {
     const classes = {
         [`${clsPrefix}`]: true,
         [placement]: true,
+        [`${clsPrefix}-${color}`]: color,
     };
 
     const outerStyle = {
@@ -118,8 +121,8 @@ class Confirm extends React.Component {
             {children}
           </div>
           <div className={classnames(`${clsPrefix}-confirm`)}>
-            <Button onClick={onClose} size='sm' style={{ minWidth: 50 }} colors='primary'>{ local['ok'] }</Button>
             <Button onClick={onCancel} size='sm' style={{ minWidth: 50 }} shape='border'>{ local['cancel'] }</Button>
+            <Button onClick={onClose} size='sm' style={{ minWidth: 50 }} colors='primary'>{ local['ok'] }</Button>
           </div>
         </div>
     );

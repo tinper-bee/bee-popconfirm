@@ -12,7 +12,7 @@ class Demo1 extends Component {
     render () {
         const content = '您喜欢使用tinper-bee组件库吗？';
         return (
-            <div className="demoPadding" style={{ marginLeft:"10%"}}>
+            <div className="demoPadding">
               <Popconfirm trigger="click" placement="left" content={content}>
                 <Button colors="primary">向左!</Button>
               </Popconfirm>

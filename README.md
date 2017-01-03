@@ -19,18 +19,15 @@ some description...
 ## 使用方法
 
 ```js
-const popoverLeft = (
-  <Popconfirm id="popover-positioned-left" title="左侧弹出">
-    您喜欢使用tinper-bee组件库吗？
-  </Popconfirm>
-);
+
+const content = '您喜欢使用tinper-bee组件库吗？';
 
 class Demo extends Component {
     render () {
         return (
-              <OverlayTrigger trigger="click" placement="left" overlay={popoverLeft}>
-                <Button colors="primary">向左!</Button>
-              </OverlayTrigger>
+            <Popconfirm trigger="click" placement="left" content={content}>
+              <Button colors="primary">向左!</Button>
+            </Popconfirm>
         )
     }
 }
@@ -59,8 +56,11 @@ import "./node_modules/bee-popconfirm/build/Popconfirm.css"
 |arrowOffsetTop|弹出框箭头向上偏移量|string/number|-|
 |arrowOffsetLeft|弹出框箭头向左偏移量|string/number|-|
 |title|标题|node|-|
-
-
+|defaultOverlayShown|覆盖Overlay设置的默认显隐状态|boolean|false|
+|content|叠加层|element/string/function|-|
+|onClick|点击事件|function|-|
+|onClose|确认事件|function|-|
+|onCancel|取消事件|function|-|
 
 #### 开发调试
 
