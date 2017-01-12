@@ -1,6 +1,7 @@
 
 
 import React, { cloneElement, PropTypes, Component } from 'react';
+import ReactDOM from 'react-dom';
 import warning from 'warning';
 import contains from 'dom-helpers/query/contains';
 import createChainedFunction from 'tinper-bee-core/lib/createChainedFunction';
