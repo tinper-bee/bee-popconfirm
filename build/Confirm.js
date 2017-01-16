@@ -41,12 +41,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var propTypes = {
-  /**
-   * An html id attribute, necessary for accessibility
-   * @type {string}
-   * @required
-   */
-  id: (0, _isRequiredForA11y2["default"])(_react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.string, _react2["default"].PropTypes.number])),
 
   /**
    * Sets the direction the Popover is positioned towards.
@@ -98,22 +92,24 @@ var Confirm = function (_React$Component) {
   Confirm.prototype.render = function render() {
     var _classes;
 
-    var _props = this.props,
-        placement = _props.placement,
-        positionTop = _props.positionTop,
-        positionLeft = _props.positionLeft,
-        arrowOffsetTop = _props.arrowOffsetTop,
-        arrowOffsetLeft = _props.arrowOffsetLeft,
-        clsPrefix = _props.clsPrefix,
-        title = _props.title,
-        className = _props.className,
-        style = _props.style,
-        children = _props.children,
-        locale = _props.locale,
-        onClose = _props.onClose,
-        color = _props.color,
-        onCancel = _props.onCancel,
-        props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
+    var _props = this.props;
+    var placement = _props.placement;
+    var positionTop = _props.positionTop;
+    var positionLeft = _props.positionLeft;
+    var arrowOffsetTop = _props.arrowOffsetTop;
+    var arrowOffsetLeft = _props.arrowOffsetLeft;
+    var clsPrefix = _props.clsPrefix;
+    var trigger = _props.trigger;
+    var title = _props.title;
+    var className = _props.className;
+    var style = _props.style;
+    var children = _props.children;
+    var locale = _props.locale;
+    var onClose = _props.onClose;
+    var color = _props.color;
+    var onCancel = _props.onCancel;
+
+    var props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
 
     var local = _i18n2["default"][locale];
 

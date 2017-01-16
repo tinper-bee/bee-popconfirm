@@ -7,14 +7,6 @@ import Button from 'bee-button';
 
 
 const propTypes = {
-  /**
-   * An html id attribute, necessary for accessibility
-   * @type {string}
-   * @required
-   */
-  id: isRequiredForA11y(React.PropTypes.oneOfType([
-    React.PropTypes.string, React.PropTypes.number,
-  ])),
 
   /**
    * Sets the direction the Popover is positioned towards.
@@ -74,6 +66,7 @@ class Confirm extends React.Component {
       arrowOffsetTop,
       arrowOffsetLeft,
       clsPrefix,
+      trigger,
       title,
       className,
       style,

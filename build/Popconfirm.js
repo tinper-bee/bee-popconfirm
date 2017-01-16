@@ -177,18 +177,22 @@ var Popconfirm = function (_Component) {
   };
 
   Popconfirm.prototype.render = function render() {
-    var _props = this.props,
-        content = _props.content,
-        children = _props.children,
-        onClick = _props.onClick,
-        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick']);
+    var _props = this.props;
+    var content = _props.content;
+    var children = _props.children;
+    var onClick = _props.onClick;
+
+    var props = _objectWithoutProperties(_props, ['content', 'children', 'onClick']);
 
     delete props.defaultOverlayShown;
 
-    var _splitComponentProps = (0, _splitComponent2["default"])(props, _Overlay2["default"]),
-        _splitComponentProps2 = _slicedToArray(_splitComponentProps, 2),
-        overlayProps = _splitComponentProps2[0],
-        confirmProps = _splitComponentProps2[1];
+    var _splitComponentProps = (0, _splitComponent2["default"])(props, _Overlay2["default"]);
+
+    var _splitComponentProps2 = _slicedToArray(_splitComponentProps, 2);
+
+    var overlayProps = _splitComponentProps2[0];
+    var confirmProps = _splitComponentProps2[1];
+
 
     var child = _react2["default"].Children.only(children);
     var childProps = child.props;
