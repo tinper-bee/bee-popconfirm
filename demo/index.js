@@ -12,62 +12,7 @@ const CARET = <i className="uf uf-arrow-down"></i>;
 const CARETUP = <i className="uf uf-arrow-up"></i>;
 
 
-/**
- *
- * @title 不同方向的气泡提示
- *
- */
-
-class Demo1 extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    render () {
-        const content = '您喜欢使用tinper-bee组件库吗？';
-        return (
-            <div className="demoPadding">
-              <Popconfirm trigger="click" placement="left" content={content}>
-                <Button colors="primary">向左!</Button>
-              </Popconfirm>
-              <Popconfirm trigger="click" placement="top" content={content}>
-                <Button colors="primary">向上!</Button>
-              </Popconfirm>
-              <Popconfirm trigger="click" placement="bottom" content={content}>
-                <Button colors="primary">向下!</Button>
-              </Popconfirm>
-              <Popconfirm trigger="click" placement="right" content={content}>
-                <Button colors="primary">向右!</Button>
-              </Popconfirm>
-            </div>
-        )
-    }
-}
-/**
- *
- * @title 不同颜色气泡提示
- * @description 气泡提示提供黑和白两种颜色，并且支持是否能被全局点击事件关闭。
- *
- */
-
-
-class Demo2 extends Component {
-
-    render () {
-        const content = '您喜欢使用tinper-bee组件库吗？';
-        return (
-            <div className="demoPadding">
-            <Popconfirm trigger="click" placement="bottom" content={content} color='dark'>
-              <Button colors="primary">黑色</Button>
-            </Popconfirm>
-            <Popconfirm trigger="click" rootClose placement="bottom" content={content}>
-              <Button colors="primary">点击其他关闭</Button>
-            </Popconfirm>
-            </div>
-        )
-    }
-}
-var DemoArray = [{"example":<Demo1 />,"title":" 不同方向的气泡提示","code":"/**\r\n *\r\n * @title 不同方向的气泡提示\r\n *\r\n */\r\n\r\nclass Demo1 extends Component {\r\n    constructor(props){\r\n        super(props);\r\n    }\r\n\r\n    render () {\r\n        const content = '您喜欢使用tinper-bee组件库吗？';\r\n        return (\r\n            <div className=\"demoPadding\">\r\n              <Popconfirm trigger=\"click\" placement=\"left\" content={content}>\r\n                <Button colors=\"primary\">向左!</Button>\r\n              </Popconfirm>\r\n              <Popconfirm trigger=\"click\" placement=\"top\" content={content}>\r\n                <Button colors=\"primary\">向上!</Button>\r\n              </Popconfirm>\r\n              <Popconfirm trigger=\"click\" placement=\"bottom\" content={content}>\r\n                <Button colors=\"primary\">向下!</Button>\r\n              </Popconfirm>\r\n              <Popconfirm trigger=\"click\" placement=\"right\" content={content}>\r\n                <Button colors=\"primary\">向右!</Button>\r\n              </Popconfirm>\r\n            </div>\r\n        )\r\n    }\r\n}\r\n","desc":""},{"example":<Demo2 />,"title":" 不同颜色气泡提示","code":"/**\r\n *\r\n * @title 不同颜色气泡提示\r\n * @description 气泡提示提供黑和白两种颜色，并且支持是否能被全局点击事件关闭。\r\n *\r\n */\r\n\r\n\r\nclass Demo2 extends Component {\r\n\r\n    render () {\r\n        const content = '您喜欢使用tinper-bee组件库吗？';\r\n        return (\r\n            <div className=\"demoPadding\">\r\n            <Popconfirm trigger=\"click\" placement=\"bottom\" content={content} color='dark'>\r\n              <Button colors=\"primary\">黑色</Button>\r\n            </Popconfirm>\r\n            <Popconfirm trigger=\"click\" rootClose placement=\"bottom\" content={content}>\r\n              <Button colors=\"primary\">点击其他关闭</Button>\r\n            </Popconfirm>\r\n            </div>\r\n        )\r\n    }\r\n}\r\n","desc":" 气泡提示提供黑和白两种颜色，并且支持是否能被全局点击事件关闭。"}]
+var Demo1 = require("./demolist/Demo1");var Demo2 = require("./demolist/Demo2");var DemoArray = [{"example":<Demo1 />,"title":" 不同方向的气泡提示","code":"/**\n *\n * @title 不同方向的气泡提示\n *\n */\n\nimport { Con, Row, Col } from 'bee-layout';\nimport { Panel } from 'bee-panel';\nimport React, { Component } from 'react';\nimport Button from 'bee-button';\nimport Popconfirm from 'tinper-bee';\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n    }\n\n    render () {\n        const content = '您喜欢使用tinper-bee组件库吗？';\n        return (\n            <div className=\"demoPadding\">\n              <Popconfirm trigger=\"click\" placement=\"left\" content={content}>\n                <Button colors=\"primary\">向左!</Button>\n              </Popconfirm>\n              <Popconfirm trigger=\"click\" placement=\"top\" content={content}>\n                <Button colors=\"primary\">向上!</Button>\n              </Popconfirm>\n              <Popconfirm trigger=\"click\" placement=\"bottom\" content={content}>\n                <Button colors=\"primary\">向下!</Button>\n              </Popconfirm>\n              <Popconfirm trigger=\"click\" placement=\"right\" content={content}>\n                <Button colors=\"primary\">向右!</Button>\n              </Popconfirm>\n            </div>\n        )\n    }\n}\n\n\n","desc":""},{"example":<Demo2 />,"title":" 不同颜色气泡提示","code":"/**\n *\n * @title 不同颜色气泡提示\n * @description 气泡提示提供黑和白两种颜色，并且支持是否能被全局点击事件关闭。\n *\n */\n\nimport { Con, Row, Col } from 'bee-layout';\nimport { Panel } from 'bee-panel';\nimport React, { Component } from 'react';\nimport Button from 'bee-button';\nimport Popconfirm from 'tinper-bee';\n\nclass Demo2 extends Component {\n\n    render () {\n        const content = '您喜欢使用tinper-bee组件库吗？';\n        return (\n            <div className=\"demoPadding\">\n            <Popconfirm trigger=\"click\" placement=\"bottom\" content={content} color='dark'>\n              <Button colors=\"primary\">黑色</Button>\n            </Popconfirm>\n            <Popconfirm trigger=\"click\" rootClose placement=\"bottom\" content={content}>\n              <Button colors=\"primary\">点击其他关闭</Button>\n            </Popconfirm>\n            </div>\n        )\n    }\n}\n\n\n","desc":" 气泡提示提供黑和白两种颜色，并且支持是否能被全局点击事件关闭。"}]
 
 
 class Demo extends Component {

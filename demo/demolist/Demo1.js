@@ -4,6 +4,12 @@
  *
  */
 
+import { Con, Row, Col } from 'bee-layout';
+import { Panel } from 'bee-panel';
+import React, { Component } from 'react';
+import Button from 'bee-button';
+import Popconfirm from '../../src';
+
 class Demo1 extends Component {
     constructor(props){
         super(props);
@@ -29,3 +35,5 @@ class Demo1 extends Component {
         )
     }
 }
+
+export default Demo1;
