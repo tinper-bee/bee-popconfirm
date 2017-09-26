@@ -92,24 +92,23 @@ var Confirm = function (_React$Component) {
   Confirm.prototype.render = function render() {
     var _classes;
 
-    var _props = this.props;
-    var placement = _props.placement;
-    var positionTop = _props.positionTop;
-    var positionLeft = _props.positionLeft;
-    var arrowOffsetTop = _props.arrowOffsetTop;
-    var arrowOffsetLeft = _props.arrowOffsetLeft;
-    var clsPrefix = _props.clsPrefix;
-    var trigger = _props.trigger;
-    var title = _props.title;
-    var className = _props.className;
-    var style = _props.style;
-    var children = _props.children;
-    var locale = _props.locale;
-    var onClose = _props.onClose;
-    var color = _props.color;
-    var onCancel = _props.onCancel;
-
-    var props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
+    var _props = this.props,
+        placement = _props.placement,
+        positionTop = _props.positionTop,
+        positionLeft = _props.positionLeft,
+        arrowOffsetTop = _props.arrowOffsetTop,
+        arrowOffsetLeft = _props.arrowOffsetLeft,
+        clsPrefix = _props.clsPrefix,
+        trigger = _props.trigger,
+        title = _props.title,
+        className = _props.className,
+        style = _props.style,
+        children = _props.children,
+        locale = _props.locale,
+        onClose = _props.onClose,
+        color = _props.color,
+        onCancel = _props.onCancel,
+        props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
 
     var local = _i18n2["default"][locale];
 

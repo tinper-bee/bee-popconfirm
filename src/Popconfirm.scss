@@ -58,7 +58,6 @@
     margin-top: -11px;
     border-left-width: 0;
     border-right-color: $popconfirm-arrow-outer-color;
-    border-right-color: $popconfirm-border-right-color;
 }
 
 .u-popconfirm.left>.arrow {
@@ -67,7 +66,6 @@
     margin-top: -11px;
     border-right-width: 0;
     border-left-color: $popconfirm-arrow-outer-color;
-    border-left-color: $popconfirm-border-right-color;
 }
 
 .u-popconfirm.top>.arrow {
@@ -75,7 +73,6 @@
     margin-left: -11px;
     border-bottom-width: 0;
     border-top-color: $popconfirm-arrow-outer-color;
-    border-top-color:$popconfirm-border-right-color;
     bottom: -10px;
 }
 
@@ -84,7 +81,6 @@
     margin-left: -11px;
     border-top-width: 0;
     border-bottom-color: $popconfirm-arrow-outer-color;
-    border-bottom-color:$popconfirm-border-right-color;
     top: -11px;
 }
 

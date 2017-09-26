@@ -48,7 +48,6 @@
   left: -10px;
   margin-top: -11px;
   border-left-width: 0;
-  border-right-color: rgb(224,224,224);
   border-right-color: rgb(224,224,224); }
 
 .u-popconfirm.left > .arrow {
@@ -56,7 +55,6 @@
   right: -10px;
   margin-top: -11px;
   border-right-width: 0;
-  border-left-color: rgb(224,224,224);
   border-left-color: rgb(224,224,224); }
 
 .u-popconfirm.top > .arrow {
@@ -64,14 +62,12 @@
   margin-left: -11px;
   border-bottom-width: 0;
   border-top-color: rgb(224,224,224);
-  border-top-color: rgb(224,224,224);
   bottom: -10px; }
 
 .u-popconfirm.bottom > .arrow {
   left: 50%;
   margin-left: -11px;
   border-top-width: 0;
-  border-bottom-color: rgb(224,224,224);
   border-bottom-color: rgb(224,224,224);
   top: -11px; }
 
