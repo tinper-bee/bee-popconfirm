@@ -3,7 +3,7 @@ import isRequiredForA11y from 'tinper-bee-core/lib/isRequiredForA11y';
 import classnames from 'classnames';
 import i18n from './i18n';
 import Button from 'bee-button';
-
+import PropTypes from 'prop-types';
 
 
 const propTypes = {
@@ -11,41 +11,41 @@ const propTypes = {
   /**
    * Sets the direction the Popover is positioned towards.
    */
-  placement: React.PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 
   /**
    * The "top" position value for the Popover.
    */
-  positionTop: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
+  positionTop: PropTypes.oneOfType([
+    PropTypes.number, PropTypes.string,
   ]),
   /**
    * The "left" position value for the Popover.
    */
-  positionLeft: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
+  positionLeft: PropTypes.oneOfType([
+    PropTypes.number, PropTypes.string,
   ]),
 
   /**
    * The "top" position value for the Popover arrow.
    */
-  arrowOffsetTop: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
+  arrowOffsetTop: PropTypes.oneOfType([
+    PropTypes.number, PropTypes.string,
   ]),
   /**
    * The "left" position value for the Popover arrow.
    */
-  arrowOffsetLeft: React.PropTypes.oneOfType([
-    React.PropTypes.number, React.PropTypes.string,
+  arrowOffsetLeft: PropTypes.oneOfType([
+    PropTypes.number, PropTypes.string,
   ]),
 
   /**
    * Title content
    */
-  title: React.PropTypes.node,
-  onClose: React.PropTypes.func,
-  onCancel: React.PropTypes.func,
-  color: React.PropTypes.oneOf(['dark']),
+  title: PropTypes.node,
+  onClose: PropTypes.func,
+  onCancel: PropTypes.func,
+  color: PropTypes.oneOf(['dark']),
 };
 
 const defaultProps = {

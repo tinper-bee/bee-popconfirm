@@ -32,6 +32,10 @@ var _splitComponent = require('tinper-bee-core/lib/splitComponent');
 
 var _splitComponent2 = _interopRequireDefault(_splitComponent);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Overlay = require('bee-overlay/build/Overlay');
 
 var _Overlay2 = _interopRequireDefault(_Overlay);
@@ -58,33 +62,33 @@ var propTypes = _extends({}, _Overlay2["default"].propTypes, {
   /**
    * 覆盖的初始可见性状态。对于更细微的可见性控制，请考虑直接使用覆盖组件。
    */
-  defaultOverlayShown: _react.PropTypes.bool,
+  defaultOverlayShown: _propTypes2["default"].bool,
 
   /**
    * 要覆盖在目标旁边的元素或文本。
    */
-  content: _react.PropTypes.node.isRequired,
+  content: _propTypes2["default"].node.isRequired,
 
   /**
    * @private
    */
-  onClick: _react.PropTypes.func,
-  onClose: _react.PropTypes.func,
-  onCancel: _react.PropTypes.func,
+  onClick: _propTypes2["default"].func,
+  onClose: _propTypes2["default"].func,
+  onCancel: _propTypes2["default"].func,
 
   // Overridden props from `<Overlay>`.
   /**
    * @private
    */
-  target: _react.PropTypes.oneOf([null]),
+  target: _propTypes2["default"].oneOf([null]),
   /**
   * @private
   */
-  onHide: _react.PropTypes.oneOf([null]),
+  onHide: _propTypes2["default"].oneOf([null]),
   /**
    * @private
    */
-  show: _react.PropTypes.oneOf([null])
+  show: _propTypes2["default"].oneOf([null])
 });
 
 var defaultProps = {

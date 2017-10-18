@@ -1,12 +1,10 @@
-
-
-import React, { cloneElement, PropTypes, Component } from 'react';
+import React, { cloneElement, Component } from 'react';
 import ReactDOM from 'react-dom';
 import warning from 'warning';
 import contains from 'dom-helpers/query/contains';
 import createChainedFunction from 'tinper-bee-core/lib/createChainedFunction';
 import splitComponentProps from 'tinper-bee-core/lib/splitComponent';
-
+import PropTypes from 'prop-types';
 import Overlay from 'bee-overlay/build/Overlay';
 import Confirm from './Confirm';
 

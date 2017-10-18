@@ -26,6 +26,10 @@ var _beeButton = require('bee-button');
 
 var _beeButton2 = _interopRequireDefault(_beeButton);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -45,33 +49,33 @@ var propTypes = {
   /**
    * Sets the direction the Popover is positioned towards.
    */
-  placement: _react2["default"].PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+  placement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
 
   /**
    * The "top" position value for the Popover.
    */
-  positionTop: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
+  positionTop: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
   /**
    * The "left" position value for the Popover.
    */
-  positionLeft: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
+  positionLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
 
   /**
    * The "top" position value for the Popover arrow.
    */
-  arrowOffsetTop: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
+  arrowOffsetTop: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
   /**
    * The "left" position value for the Popover arrow.
    */
-  arrowOffsetLeft: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.number, _react2["default"].PropTypes.string]),
+  arrowOffsetLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
 
   /**
    * Title content
    */
-  title: _react2["default"].PropTypes.node,
-  onClose: _react2["default"].PropTypes.func,
-  onCancel: _react2["default"].PropTypes.func,
-  color: _react2["default"].PropTypes.oneOf(['dark'])
+  title: _propTypes2["default"].node,
+  onClose: _propTypes2["default"].func,
+  onCancel: _propTypes2["default"].func,
+  color: _propTypes2["default"].oneOf(['dark'])
 };
 
 var defaultProps = {
