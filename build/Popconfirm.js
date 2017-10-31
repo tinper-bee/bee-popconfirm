@@ -40,6 +40,10 @@ var _Overlay = require('bee-overlay/build/Overlay');
 
 var _Overlay2 = _interopRequireDefault(_Overlay);
 
+var _Portal = require('bee-overlay/build/Portal');
+
+var _Portal2 = _interopRequireDefault(_Portal);
+
 var _Confirm = require('./Confirm');
 
 var _Confirm2 = _interopRequireDefault(_Confirm);
@@ -55,6 +59,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+var isReact16 = _reactDom2["default"].createPortal !== undefined;
 
 var propTypes = _extends({}, _Overlay2["default"].propTypes, {
 
@@ -119,15 +125,15 @@ var Popconfirm = function (_Component) {
 
   Popconfirm.prototype.componentDidMount = function componentDidMount() {
     this._mountNode = document.createElement('div');
-    this.renderOverlay();
+    !isReact16 && this.renderOverlay();
   };
 
   Popconfirm.prototype.componentDidUpdate = function componentDidUpdate() {
-    this.renderOverlay();
+    !isReact16 && this.renderOverlay();
   };
 
   Popconfirm.prototype.componentWillUnmount = function componentWillUnmount() {
-    _reactDom2["default"].unmountComponentAtNode(this._mountNode);
+    !isReact16 && _reactDom2["default"].unmountComponentAtNode(this._mountNode);
     this._mountNode = null;
   };
 
@@ -218,7 +224,20 @@ var Popconfirm = function (_Component) {
 
     this._overlay = this.makeOverlay(overlay, overlayProps);
 
-    return (0, _react.cloneElement)(child, triggerProps);
+    if (!isReact16) {
+      return (0, _react.cloneElement)(child, triggerProps);
+    }
+    triggerProps.key = 'overlay';
+
+    var portal = _react2["default"].createElement(
+      _Portal2["default"],
+      {
+        key: 'portal',
+        container: props.container },
+      this._overlay
+    );
+
+    return [(0, _react.cloneElement)(child, triggerProps), portal];
   };
 
   return Popconfirm;

@@ -6,7 +6,10 @@ import createChainedFunction from 'tinper-bee-core/lib/createChainedFunction';
 import splitComponentProps from 'tinper-bee-core/lib/splitComponent';
 import PropTypes from 'prop-types';
 import Overlay from 'bee-overlay/build/Overlay';
+import Portal from 'bee-overlay/build/Portal';
 import Confirm from './Confirm';
+
+const isReact16 = ReactDOM.createPortal !== undefined;
 
 const propTypes = {
   ...Overlay.propTypes,
@@ -70,15 +73,15 @@ class Popconfirm extends Component {
 
   componentDidMount() {
     this._mountNode = document.createElement('div');
-    this.renderOverlay();
+    !isReact16 && this.renderOverlay();
   }
 
   componentDidUpdate() {
-    this.renderOverlay();
+      !isReact16 && this.renderOverlay();
   }
 
   componentWillUnmount() {
-    ReactDOM.unmountComponentAtNode(this._mountNode);
+      !isReact16 && ReactDOM.unmountComponentAtNode(this._mountNode);
     this._mountNode = null;
 
   }
@@ -172,7 +175,24 @@ class Popconfirm extends Component {
 
     this._overlay = this.makeOverlay(overlay, overlayProps);
 
-    return cloneElement(child, triggerProps);
+      if (!isReact16) {
+          return cloneElement(child, triggerProps);
+      }
+      triggerProps.key = 'overlay';
+
+      let portal = (
+          <Portal
+              key="portal"
+              container={props.container}>
+              { this._overlay }
+          </Portal>
+      )
+
+
+      return [
+          cloneElement(child, triggerProps),
+          portal
+      ]
   }
 }
 
