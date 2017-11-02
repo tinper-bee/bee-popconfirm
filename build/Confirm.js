@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -9,10 +9,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _isRequiredForA11y = require('tinper-bee-core/lib/isRequiredForA11y');
-
-var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
 
 var _classnames = require('classnames');
 
@@ -30,6 +26,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _tool = require('bee-locale/build/tool');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -46,126 +44,132 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
 
-  /**
-   * Sets the direction the Popover is positioned towards.
-   */
-  placement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
+    /**
+     * Sets the direction the Popover is positioned towards.
+     */
+    placement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
 
-  /**
-   * The "top" position value for the Popover.
-   */
-  positionTop: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
-  /**
-   * The "left" position value for the Popover.
-   */
-  positionLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
+    /**
+     * The "top" position value for the Popover.
+     */
+    positionTop: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
+    /**
+     * The "left" position value for the Popover.
+     */
+    positionLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
 
-  /**
-   * The "top" position value for the Popover arrow.
-   */
-  arrowOffsetTop: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
-  /**
-   * The "left" position value for the Popover arrow.
-   */
-  arrowOffsetLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
+    /**
+     * The "top" position value for the Popover arrow.
+     */
+    arrowOffsetTop: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
+    /**
+     * The "left" position value for the Popover arrow.
+     */
+    arrowOffsetLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
 
-  /**
-   * Title content
-   */
-  title: _propTypes2["default"].node,
-  onClose: _propTypes2["default"].func,
-  onCancel: _propTypes2["default"].func,
-  color: _propTypes2["default"].oneOf(['dark'])
+    /**
+     * Title content
+     */
+    title: _propTypes2["default"].node,
+    onClose: _propTypes2["default"].func,
+    onCancel: _propTypes2["default"].func,
+    color: _propTypes2["default"].oneOf(['dark'])
 };
 
 var defaultProps = {
-  placement: 'right',
-  clsPrefix: 'u-popconfirm',
-  locale: 'zh-cn'
+    placement: 'right',
+    clsPrefix: 'u-popconfirm',
+    locale: {}
 };
 
 var Confirm = function (_React$Component) {
-  _inherits(Confirm, _React$Component);
+    _inherits(Confirm, _React$Component);
 
-  function Confirm(props) {
-    _classCallCheck(this, Confirm);
+    function Confirm(props) {
+        _classCallCheck(this, Confirm);
 
-    return _possibleConstructorReturn(this, _React$Component.call(this, props));
-  }
+        return _possibleConstructorReturn(this, _React$Component.call(this, props));
+    }
 
-  Confirm.prototype.render = function render() {
-    var _classes;
+    Confirm.prototype.render = function render() {
+        var _classes;
 
-    var _props = this.props,
-        placement = _props.placement,
-        positionTop = _props.positionTop,
-        positionLeft = _props.positionLeft,
-        arrowOffsetTop = _props.arrowOffsetTop,
-        arrowOffsetLeft = _props.arrowOffsetLeft,
-        clsPrefix = _props.clsPrefix,
-        trigger = _props.trigger,
-        title = _props.title,
-        className = _props.className,
-        style = _props.style,
-        children = _props.children,
-        locale = _props.locale,
-        onClose = _props.onClose,
-        color = _props.color,
-        onCancel = _props.onCancel,
-        props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
+        var _props = this.props,
+            placement = _props.placement,
+            positionTop = _props.positionTop,
+            positionLeft = _props.positionLeft,
+            arrowOffsetTop = _props.arrowOffsetTop,
+            arrowOffsetLeft = _props.arrowOffsetLeft,
+            clsPrefix = _props.clsPrefix,
+            trigger = _props.trigger,
+            title = _props.title,
+            className = _props.className,
+            style = _props.style,
+            children = _props.children,
+            locale = _props.locale,
+            onClose = _props.onClose,
+            color = _props.color,
+            onCancel = _props.onCancel,
+            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
 
-    var local = _i18n2["default"][locale];
+        var local = (0, _tool.getComponentLocale)(this.props, this.context, 'Popconfirm', function () {
+            return _i18n2["default"];
+        });
 
-    //const [bsProps, elementProps] = splitBsProps(props);
+        //const [bsProps, elementProps] = splitBsProps(props);
 
-    var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, placement, true), _defineProperty(_classes, clsPrefix + '-' + color, color), _classes);
+        var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, placement, true), _defineProperty(_classes, clsPrefix + '-' + color, color), _classes);
 
-    var outerStyle = _extends({
-      display: 'block',
-      top: positionTop,
-      left: positionLeft
-    }, style);
+        var outerStyle = _extends({
+            display: 'block',
+            top: positionTop,
+            left: positionLeft
+        }, style);
 
-    var arrowStyle = {
-      top: arrowOffsetTop,
-      left: arrowOffsetLeft
+        var arrowStyle = {
+            top: arrowOffsetTop,
+            left: arrowOffsetLeft
+        };
+
+        return _react2["default"].createElement(
+            'div',
+            _extends({}, props, {
+                role: 'tooltip',
+                className: (0, _classnames2["default"])(className, classes),
+                style: outerStyle
+            }),
+            _react2["default"].createElement('div', { className: 'arrow', style: arrowStyle }),
+            _react2["default"].createElement(
+                'div',
+                { className: (0, _classnames2["default"])(clsPrefix + '-content') },
+                children
+            ),
+            _react2["default"].createElement(
+                'div',
+                { className: (0, _classnames2["default"])(clsPrefix + '-confirm') },
+                _react2["default"].createElement(
+                    _beeButton2["default"],
+                    { onClick: onCancel, size: 'sm', style: { minWidth: 50 },
+                        shape: 'border' },
+                    local['cancel']
+                ),
+                _react2["default"].createElement(
+                    _beeButton2["default"],
+                    { onClick: onClose, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
+                    local['ok']
+                )
+            )
+        );
     };
 
-    return _react2["default"].createElement(
-      'div',
-      _extends({}, props, {
-        role: 'tooltip',
-        className: (0, _classnames2["default"])(className, classes),
-        style: outerStyle
-      }),
-      _react2["default"].createElement('div', { className: 'arrow', style: arrowStyle }),
-      _react2["default"].createElement(
-        'div',
-        { className: (0, _classnames2["default"])(clsPrefix + '-content') },
-        children
-      ),
-      _react2["default"].createElement(
-        'div',
-        { className: (0, _classnames2["default"])(clsPrefix + '-confirm') },
-        _react2["default"].createElement(
-          _beeButton2["default"],
-          { onClick: onCancel, size: 'sm', style: { minWidth: 50 }, shape: 'border' },
-          local['cancel']
-        ),
-        _react2["default"].createElement(
-          _beeButton2["default"],
-          { onClick: onClose, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
-          local['ok']
-        )
-      )
-    );
-  };
-
-  return Confirm;
+    return Confirm;
 }(_react2["default"].Component);
 
 Confirm.propTypes = propTypes;
 Confirm.defaultProps = defaultProps;
+Confirm.contextTypes = {
+    beeLocale: _propTypes2["default"].object
+};
 
 exports["default"] = Confirm;
 module.exports = exports['default'];

@@ -23,20 +23,5 @@
 |onExit|隐藏开始时的钩子函数|function|-|
 |onExiting|隐藏进行时的钩子函数|function|-|
 |onExited|隐藏结束时的钩子函数|function|-|
-|placement|显示位置设置|top\left\bottom\right|right|
-
-### Confirm
-
-|参数|说明|类型|默认值|
-|:---|:-----|:----|:------|
 |placement|弹出位置|top/left/right/bottom|right|
-|positionTop|弹出框向上偏移量|string/number|-|
-|positionLeft|弹出框向左偏移量|string/number|-|
-|arrowOffsetTop|弹出框箭头向上偏移量|string/number|-|
-|arrowOffsetLeft|弹出框箭头向左偏移量|string/number|-|
-|title|标题|node|-|
-|defaultOverlayShown|覆盖Overlay设置的默认显隐状态|boolean|false|
-|content|叠加层|element/string/function|-|
-|onClick|点击事件|function|-|
-|onClose|确认事件|function|-|
-|onCancel|取消事件|function|-|
+|locale|显示文字语言对象|object|{lang: 'zh-cn', ok: '确认', cancel: '取消'}|

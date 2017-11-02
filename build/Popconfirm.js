@@ -16,14 +16,6 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _warning = require('warning');
-
-var _warning2 = _interopRequireDefault(_warning);
-
-var _contains = require('dom-helpers/query/contains');
-
-var _contains2 = _interopRequireDefault(_contains);
-
 var _createChainedFunction = require('tinper-bee-core/lib/createChainedFunction');
 
 var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
