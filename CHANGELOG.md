@@ -1,5 +1,5 @@
 <a name="1.0.2"></a>
-## 1.0.2 (2017-11-02)
+## [1.0.2](https://github.com/tinper-bee/bee-popconfirm/compare/61948f4...1.0.2) (2017-11-02)
 
 
 ### Features

@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52c6ea43-3dff-4c32-a415-1b15066e17cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/demolist/Demo1.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/demolist/Demo2.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/demolist/Demo3.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/PopconfirmDemo.scss" afterPath="$PROJECT_DIR$/demo/PopconfirmDemo.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/demolist/Demo2.js" afterPath="$PROJECT_DIR$/demo/demolist/Demo2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/index-demo-base.js" afterPath="$PROJECT_DIR$/demo/index-demo-base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/index.js" afterPath="$PROJECT_DIR$/demo/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/demo.css" afterPath="$PROJECT_DIR$/dist/demo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/demo.css.map" afterPath="$PROJECT_DIR$/dist/demo.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/demo.js" afterPath="$PROJECT_DIR$/dist/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/demo.js.map" afterPath="$PROJECT_DIR$/dist/demo.js.map" />
-    </list>
+    <list default="true" id="52c6ea43-3dff-4c32-a415-1b15066e17cd" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +69,8 @@
       <file leaf-file-name="Demo1.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/demolist/Demo1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="312">
+              <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#36#75#0" expanded="true" />
@@ -287,12 +274,12 @@
       <workItem from="1506390755614" duration="576000" />
       <workItem from="1509631993021" duration="2349000" />
       <workItem from="1516460480130" duration="33000" />
-      <workItem from="1516460515804" duration="192000" />
+      <workItem from="1516460515804" duration="269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4852000" />
+    <option name="totallyTimeSpent" value="4929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="23" width="1936" height="946" extended-state="0" />
@@ -703,8 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/demolist/Demo1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="312">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#36#75#0" expanded="true" />
