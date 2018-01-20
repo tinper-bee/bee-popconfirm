@@ -5,8 +5,6 @@
  *
  */
 
-import { Con, Row, Col } from 'bee-layout';
-import { Panel } from 'bee-panel';
 import React, { Component } from 'react';
 import Button from 'bee-button';
 import Popconfirm from '../../src';
