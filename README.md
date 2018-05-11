@@ -66,7 +66,7 @@ import "./node_modules/bee-popconfirm/build/Popconfirm.css"
 |onExited|隐藏结束时的钩子函数|function|-|
 |placement|弹出位置|top/left/right/bottom|right|
 |locale|显示文字语言对象|object|{lang: 'zh-cn', ok: '确认', cancel: '取消'}|
-
+|container|标题|node/function|body|
 
 #### 开发调试
 
