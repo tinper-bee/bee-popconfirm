@@ -92,15 +92,15 @@ class Popconfirm extends Component {
     }
   }
 
-  handleClose () {
+  handleClose (e) {
        const { onClose } = this.props;
        this.hide();
-       onClose && onClose();
+       onClose && onClose(e);
    }
-   handleCancel () {
+   handleCancel (e) {
        const { onCancel } = this.props;
        this.hide();
-       onCancel && onCancel();
+       onCancel && onCancel(e);
    }
 
   handleHide() {
@@ -139,6 +139,7 @@ class Popconfirm extends Component {
       content,
       children,
       onClick,
+      stopbubble,
       ...props
     } = this.props;
 
@@ -154,6 +155,7 @@ class Popconfirm extends Component {
            {...confirmProps}
            onClose={ this.handleClose}
            onCancel= {this.handleCancel}
+           stopbubble={stopbubble}
            placement={props.placement}>
                { content }
            </Confirm>

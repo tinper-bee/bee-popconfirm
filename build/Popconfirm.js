@@ -136,18 +136,18 @@ var Popconfirm = function (_Component) {
     }
   };
 
-  Popconfirm.prototype.handleClose = function handleClose() {
+  Popconfirm.prototype.handleClose = function handleClose(e) {
     var onClose = this.props.onClose;
 
     this.hide();
-    onClose && onClose();
+    onClose && onClose(e);
   };
 
-  Popconfirm.prototype.handleCancel = function handleCancel() {
+  Popconfirm.prototype.handleCancel = function handleCancel(e) {
     var onCancel = this.props.onCancel;
 
     this.hide();
-    onCancel && onCancel();
+    onCancel && onCancel(e);
   };
 
   Popconfirm.prototype.handleHide = function handleHide() {
@@ -183,7 +183,8 @@ var Popconfirm = function (_Component) {
         content = _props.content,
         children = _props.children,
         onClick = _props.onClick,
-        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick']);
+        stopbubble = _props.stopbubble,
+        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble']);
 
     delete props.defaultOverlayShown;
 
@@ -200,6 +201,7 @@ var Popconfirm = function (_Component) {
       _extends({}, confirmProps, {
         onClose: this.handleClose,
         onCancel: this.handleCancel,
+        stopbubble: stopbubble,
         placement: props.placement }),
       content
     );

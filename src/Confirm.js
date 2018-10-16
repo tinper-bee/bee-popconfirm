@@ -40,6 +40,11 @@ const propTypes = {
     ]),
 
     /**
+     * 阻止冒泡
+     */
+    stopbubble: PropTypes.bool,
+
+    /**
      * Title content
      */
     title: PropTypes.node,
@@ -49,6 +54,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    stopbubble: false,
     placement: 'right',
     clsPrefix: 'u-popconfirm',
     locale: {}
@@ -57,6 +63,18 @@ const defaultProps = {
 class Confirm extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    cancel = (e) => {
+        const { stopbubble, onCancel } = this.props;
+        stopbubble && e.stopPropagation();
+        onCancel(e)
+    }
+
+    close = (e) => {
+        const { stopbubble, onClose } = this.props;
+        stopbubble && e.stopPropagation();
+        onClose(e)
     }
 
     render() {
@@ -114,9 +132,9 @@ class Confirm extends React.Component {
                     {children}
                 </div>
                 <div className={classnames(`${clsPrefix}-confirm`)}>
-                    <Button onClick={onCancel} size='sm' style={{minWidth: 50}}
+                    <Button onClick={this.cancel} size='sm' style={{minWidth: 50}}
                             shape='border'>{local['cancel']}</Button>
-                    <Button onClick={onClose} size='sm' style={{minWidth: 50}} colors='primary'>{local['ok']}</Button>
+                    <Button onClick={this.close} size='sm' style={{minWidth: 50}} colors='primary'>{local['ok']}</Button>
                 </div>
             </div>
         );

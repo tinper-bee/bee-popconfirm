@@ -68,6 +68,11 @@ var propTypes = {
     arrowOffsetLeft: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
 
     /**
+     * 阻止冒泡
+     */
+    stopbubble: _propTypes2["default"].bool,
+
+    /**
      * Title content
      */
     title: _propTypes2["default"].node,
@@ -77,6 +82,7 @@ var propTypes = {
 };
 
 var defaultProps = {
+    stopbubble: false,
     placement: 'right',
     clsPrefix: 'u-popconfirm',
     locale: {}
@@ -88,7 +94,27 @@ var Confirm = function (_React$Component) {
     function Confirm(props) {
         _classCallCheck(this, Confirm);
 
-        return _possibleConstructorReturn(this, _React$Component.call(this, props));
+        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+
+        _this.cancel = function (e) {
+            var _this$props = _this.props,
+                stopbubble = _this$props.stopbubble,
+                onCancel = _this$props.onCancel;
+
+            stopbubble && e.stopPropagation();
+            onCancel(e);
+        };
+
+        _this.close = function (e) {
+            var _this$props2 = _this.props,
+                stopbubble = _this$props2.stopbubble,
+                onClose = _this$props2.onClose;
+
+            stopbubble && e.stopPropagation();
+            onClose(e);
+        };
+
+        return _this;
     }
 
     Confirm.prototype.render = function render() {
@@ -149,13 +175,13 @@ var Confirm = function (_React$Component) {
                 { className: (0, _classnames2["default"])(clsPrefix + '-confirm') },
                 _react2["default"].createElement(
                     _beeButton2["default"],
-                    { onClick: onCancel, size: 'sm', style: { minWidth: 50 },
+                    { onClick: this.cancel, size: 'sm', style: { minWidth: 50 },
                         shape: 'border' },
                     local['cancel']
                 ),
                 _react2["default"].createElement(
                     _beeButton2["default"],
-                    { onClick: onClose, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
+                    { onClick: this.close, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
                     local['ok']
                 )
             )
