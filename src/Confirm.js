@@ -94,6 +94,7 @@ class Confirm extends React.Component {
             onClose,
             color,
             onCancel,
+            stopbubble,
             ...props
         } = this.props;
 
@@ -126,6 +127,7 @@ class Confirm extends React.Component {
                 role="tooltip"
                 className={classnames(className, classes)}
                 style={outerStyle}
+                onClick={e => stopbubble && e.stopPropagation()}
             >
                 <div className="arrow" style={arrowStyle}/>
                 <div className={classnames(`${clsPrefix}-content`)}>

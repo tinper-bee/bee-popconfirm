@@ -136,7 +136,8 @@ var Confirm = function (_React$Component) {
             onClose = _props.onClose,
             color = _props.color,
             onCancel = _props.onCancel,
-            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel']);
+            stopbubble = _props.stopbubble,
+            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel', 'stopbubble']);
 
         var local = (0, _tool.getComponentLocale)(this.props, this.context, 'Popconfirm', function () {
             return _i18n2["default"];
@@ -162,7 +163,10 @@ var Confirm = function (_React$Component) {
             _extends({}, props, {
                 role: 'tooltip',
                 className: (0, _classnames2["default"])(className, classes),
-                style: outerStyle
+                style: outerStyle,
+                onClick: function onClick(e) {
+                    return stopbubble && e.stopPropagation();
+                }
             }),
             _react2["default"].createElement('div', { className: 'arrow', style: arrowStyle }),
             _react2["default"].createElement(
