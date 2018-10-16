@@ -70,7 +70,7 @@ var propTypes = {
     /**
      * 阻止冒泡
      */
-    stopbubble: _propTypes2["default"].bool,
+    stopbubble: _propTypes2["default"].number,
 
     /**
      * Title content
@@ -82,7 +82,7 @@ var propTypes = {
 };
 
 var defaultProps = {
-    stopbubble: false,
+    stopbubble: 0,
     placement: 'right',
     clsPrefix: 'u-popconfirm',
     locale: {}

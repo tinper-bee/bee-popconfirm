@@ -42,7 +42,7 @@ const propTypes = {
     /**
      * 阻止冒泡
      */
-    stopbubble: PropTypes.bool,
+    stopbubble: PropTypes.number,
 
     /**
      * Title content
@@ -54,7 +54,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    stopbubble: false,
+    stopbubble: 0,
     placement: 'right',
     clsPrefix: 'u-popconfirm',
     locale: {}
