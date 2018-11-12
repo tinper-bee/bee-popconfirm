@@ -102,9 +102,27 @@ class Confirm extends React.Component {
 
         //const [bsProps, elementProps] = splitBsProps(props);
 
+        let inversePlacement = null;
+        if (className.includes('inverse-arrow')) {
+            switch (placement) {
+                case 'top':
+                    inversePlacement = 'bottom'
+                    break;
+                case 'left':
+                    inversePlacement = 'right'
+                    break;
+                case 'right':
+                    inversePlacement = 'left'
+                    break;
+                case 'bottom':
+                    inversePlacement = 'top'
+                    break;
+            }
+        }
+        let resPlacement = inversePlacement ? inversePlacement : placement;
         const classes = {
             [`${clsPrefix}`]: true,
-            [placement]: true,
+            [resPlacement]: true,
             [`${clsPrefix}-${color}`]: color,
         };
 

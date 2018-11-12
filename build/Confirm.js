@@ -145,7 +145,25 @@ var Confirm = function (_React$Component) {
 
         //const [bsProps, elementProps] = splitBsProps(props);
 
-        var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, placement, true), _defineProperty(_classes, clsPrefix + '-' + color, color), _classes);
+        var inversePlacement = null;
+        if (className.includes('inverse-arrow')) {
+            switch (placement) {
+                case 'top':
+                    inversePlacement = 'bottom';
+                    break;
+                case 'left':
+                    inversePlacement = 'right';
+                    break;
+                case 'right':
+                    inversePlacement = 'left';
+                    break;
+                case 'bottom':
+                    inversePlacement = 'top';
+                    break;
+            }
+        }
+        var resPlacement = inversePlacement ? inversePlacement : placement;
+        var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, resPlacement, true), _defineProperty(_classes, clsPrefix + '-' + color, color), _classes);
 
         var outerStyle = _extends({
             display: 'block',
