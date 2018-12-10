@@ -68,6 +68,7 @@ import "./node_modules/bee-popconfirm/build/Popconfirm.css"
 |locale|显示文字语言对象|object|{lang: 'zh-cn', ok: '确认', cancel: '取消'}|
 |container|标题|node/function|body|
 |stopbubble|是否阻止冒泡(1-阻止，0-不阻止)|number|0|
+|animation|是否要使用动画|bool|true|
 
 #### 开发调试
 

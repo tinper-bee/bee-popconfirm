@@ -26,7 +26,7 @@ class Demo1 extends Component {
                 <Popconfirm trigger="click" placement="bottom" content={content}>
                     <Button colors="primary">向下!</Button>
                 </Popconfirm>
-                <Popconfirm trigger="click" placement="left" content={content}>
+                <Popconfirm trigger="click" placement="left" content={content} animation={false}>
                     <Button colors="primary">向左!</Button>
                 </Popconfirm>
             </div>
