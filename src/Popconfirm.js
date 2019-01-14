@@ -45,7 +45,8 @@ const propTypes = {
   /**
    * @private
    */
-  show: PropTypes.oneOf([null]),
+  // show: PropTypes.oneOf([null]),
+  show: PropTypes.bool
 };
 
 const defaultProps = {
@@ -73,10 +74,21 @@ class Popconfirm extends Component {
   componentDidMount() {
     this._mountNode = document.createElement('div');
     !isReact16 && this.renderOverlay();
+    if ('show' in this.props) {
+      this.setState({
+        show: this.props.show
+      })
+    }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+      let { show } = this.props;
       !isReact16 && this.renderOverlay();
+      if ("show" in this.props && prevProps.show !== show) {
+        this.setState({
+          show
+        })
+      }
   }
 
   componentWillUnmount() {
@@ -94,12 +106,12 @@ class Popconfirm extends Component {
 
   handleClose (e) {
        const { onClose } = this.props;
-       this.hide();
+      "show" in this.props ? void (0) : this.hide();
        onClose && onClose(e);
    }
    handleCancel (e) {
        const { onCancel } = this.props;
-       this.hide();
+       "show" in this.props ? void(0) : this.hide();
        onCancel && onCancel(e);
    }
 
@@ -169,11 +181,16 @@ class Popconfirm extends Component {
 
     triggerProps.onClick = createChainedFunction(childProps.onClick, onClick);
 
+    if (!("show" in this.props)) {
       triggerProps.onClick = createChainedFunction(
         triggerProps.onClick, this.handleToggle
       );
+    }
 
 
+    if ("show" in this.props) {
+      overlayProps.rootClose = false;
+    }
     this._overlay = this.makeOverlay(overlay, overlayProps);
 
       if (!isReact16) {

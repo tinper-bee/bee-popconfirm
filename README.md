@@ -69,6 +69,7 @@ import "./node_modules/bee-popconfirm/build/Popconfirm.css"
 |container|标题|node/function|body|
 |stopbubble|是否阻止冒泡(1-阻止，0-不阻止)|number|0|
 |animation|是否要使用动画|bool|true|
+|show|显示隐藏是否受控|bool|-|
 
 #### 开发调试
 

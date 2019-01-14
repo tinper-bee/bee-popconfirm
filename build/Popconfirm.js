@@ -86,7 +86,8 @@ var propTypes = _extends({}, _Overlay2["default"].propTypes, {
   /**
    * @private
    */
-  show: _propTypes2["default"].oneOf([null])
+  // show: PropTypes.oneOf([null]),
+  show: _propTypes2["default"].bool
 });
 
 var defaultProps = {
@@ -118,10 +119,22 @@ var Popconfirm = function (_Component) {
   Popconfirm.prototype.componentDidMount = function componentDidMount() {
     this._mountNode = document.createElement('div');
     !isReact16 && this.renderOverlay();
+    if ('show' in this.props) {
+      this.setState({
+        show: this.props.show
+      });
+    }
   };
 
-  Popconfirm.prototype.componentDidUpdate = function componentDidUpdate() {
+  Popconfirm.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
+    var show = this.props.show;
+
     !isReact16 && this.renderOverlay();
+    if ("show" in this.props && prevProps.show !== show) {
+      this.setState({
+        show: show
+      });
+    }
   };
 
   Popconfirm.prototype.componentWillUnmount = function componentWillUnmount() {
@@ -139,14 +152,14 @@ var Popconfirm = function (_Component) {
   Popconfirm.prototype.handleClose = function handleClose(e) {
     var onClose = this.props.onClose;
 
-    this.hide();
+    "show" in this.props ? void 0 : this.hide();
     onClose && onClose(e);
   };
 
   Popconfirm.prototype.handleCancel = function handleCancel(e) {
     var onCancel = this.props.onCancel;
 
-    this.hide();
+    "show" in this.props ? void 0 : this.hide();
     onCancel && onCancel(e);
   };
 
@@ -214,8 +227,13 @@ var Popconfirm = function (_Component) {
 
     triggerProps.onClick = (0, _createChainedFunction2["default"])(childProps.onClick, onClick);
 
-    triggerProps.onClick = (0, _createChainedFunction2["default"])(triggerProps.onClick, this.handleToggle);
+    if (!("show" in this.props)) {
+      triggerProps.onClick = (0, _createChainedFunction2["default"])(triggerProps.onClick, this.handleToggle);
+    }
 
+    if ("show" in this.props) {
+      overlayProps.rootClose = false;
+    }
     this._overlay = this.makeOverlay(overlay, overlayProps);
 
     if (!isReact16) {
