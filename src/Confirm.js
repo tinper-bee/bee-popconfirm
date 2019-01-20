@@ -13,6 +13,8 @@ const propTypes = {
      */
     placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 
+    secondPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    renderPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /**
      * The "top" position value for the Popover.
      */
@@ -95,6 +97,8 @@ class Confirm extends React.Component {
             color,
             onCancel,
             stopbubble,
+            secondPlacement,
+            renderPlacement,
             ...props
         } = this.props;
 
@@ -102,9 +106,15 @@ class Confirm extends React.Component {
 
         //const [bsProps, elementProps] = splitBsProps(props);
 
+        let lastPlacement = null;
+        if ("secondPlacement" in this.props && secondPlacement && renderPlacement) {
+            lastPlacement = renderPlacement;
+        } else {
+            lastPlacement = placement
+        }
         let inversePlacement = null;
         if (className.includes('inverse-arrow')) {
-            switch (placement) {
+            switch (lastPlacement) {
                 case 'top':
                     inversePlacement = 'bottom'
                     break;
@@ -118,6 +128,8 @@ class Confirm extends React.Component {
                     inversePlacement = 'top'
                     break;
             }
+        } else {
+            inversePlacement = lastPlacement
         }
         let resPlacement = inversePlacement ? inversePlacement : placement;
         const classes = {

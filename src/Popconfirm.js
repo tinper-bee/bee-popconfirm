@@ -21,6 +21,11 @@ const propTypes = {
   defaultOverlayShown: PropTypes.bool,
 
   /**
+   * 第二优先级位置方向
+   */
+  secondPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+
+  /**
    * 要覆盖在目标旁边的元素或文本。
    */
   content: PropTypes.node.isRequired,
@@ -152,6 +157,7 @@ class Popconfirm extends Component {
       children,
       onClick,
       stopbubble,
+      secondPlacement,
       ...props
     } = this.props;
 
@@ -168,6 +174,7 @@ class Popconfirm extends Component {
            onClose={ this.handleClose}
            onCancel= {this.handleCancel}
            stopbubble={stopbubble}
+           secondPlacement={secondPlacement}
            placement={props.placement}>
                { content }
            </Confirm>
@@ -191,6 +198,7 @@ class Popconfirm extends Component {
     if ("show" in this.props) {
       overlayProps.rootClose = false;
     }
+    overlayProps.secondPlacement = secondPlacement;
     this._overlay = this.makeOverlay(overlay, overlayProps);
 
       if (!isReact16) {

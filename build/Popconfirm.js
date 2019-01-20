@@ -63,6 +63,11 @@ var propTypes = _extends({}, _Overlay2["default"].propTypes, {
   defaultOverlayShown: _propTypes2["default"].bool,
 
   /**
+   * 第二优先级位置方向
+   */
+  secondPlacement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
+
+  /**
    * 要覆盖在目标旁边的元素或文本。
    */
   content: _propTypes2["default"].node.isRequired,
@@ -197,7 +202,8 @@ var Popconfirm = function (_Component) {
         children = _props.children,
         onClick = _props.onClick,
         stopbubble = _props.stopbubble,
-        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble']);
+        secondPlacement = _props.secondPlacement,
+        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble', 'secondPlacement']);
 
     delete props.defaultOverlayShown;
 
@@ -215,6 +221,7 @@ var Popconfirm = function (_Component) {
         onClose: this.handleClose,
         onCancel: this.handleCancel,
         stopbubble: stopbubble,
+        secondPlacement: secondPlacement,
         placement: props.placement }),
       content
     );
@@ -234,6 +241,7 @@ var Popconfirm = function (_Component) {
     if ("show" in this.props) {
       overlayProps.rootClose = false;
     }
+    overlayProps.secondPlacement = secondPlacement;
     this._overlay = this.makeOverlay(overlay, overlayProps);
 
     if (!isReact16) {

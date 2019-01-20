@@ -49,6 +49,8 @@ var propTypes = {
      */
     placement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
 
+    secondPlacement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
+    renderPlacement: _propTypes2["default"].oneOf(['top', 'right', 'bottom', 'left']),
     /**
      * The "top" position value for the Popover.
      */
@@ -137,7 +139,9 @@ var Confirm = function (_React$Component) {
             color = _props.color,
             onCancel = _props.onCancel,
             stopbubble = _props.stopbubble,
-            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel', 'stopbubble']);
+            secondPlacement = _props.secondPlacement,
+            renderPlacement = _props.renderPlacement,
+            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel', 'stopbubble', 'secondPlacement', 'renderPlacement']);
 
         var local = (0, _tool.getComponentLocale)(this.props, this.context, 'Popconfirm', function () {
             return _i18n2["default"];
@@ -145,9 +149,15 @@ var Confirm = function (_React$Component) {
 
         //const [bsProps, elementProps] = splitBsProps(props);
 
+        var lastPlacement = null;
+        if ("secondPlacement" in this.props && secondPlacement && renderPlacement) {
+            lastPlacement = renderPlacement;
+        } else {
+            lastPlacement = placement;
+        }
         var inversePlacement = null;
         if (className.includes('inverse-arrow')) {
-            switch (placement) {
+            switch (lastPlacement) {
                 case 'top':
                     inversePlacement = 'bottom';
                     break;
@@ -161,6 +171,8 @@ var Confirm = function (_React$Component) {
                     inversePlacement = 'top';
                     break;
             }
+        } else {
+            inversePlacement = lastPlacement;
         }
         var resPlacement = inversePlacement ? inversePlacement : placement;
         var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, resPlacement, true), _defineProperty(_classes, clsPrefix + '-' + color, color), _classes);
