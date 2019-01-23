@@ -37,6 +37,10 @@ const propTypes = {
   onClose: PropTypes.func,
   onCancel: PropTypes.func,
 
+  /**
+   * @private rootClose关闭时候的回调
+   */
+  onRootClose: PropTypes.func,
 
   // Overridden props from `<Overlay>`.
   /**
@@ -121,7 +125,11 @@ class Popconfirm extends Component {
    }
 
   handleHide() {
-    this.hide();
+    let { onRootClose } = this.props;
+    onRootClose && onRootClose();
+    if (!("show" in this.props)) {
+      this.hide();
+    }
   }
 
   show() {
@@ -158,6 +166,7 @@ class Popconfirm extends Component {
       onClick,
       stopbubble,
       secondPlacement,
+      onRootClose,
       ...props
     } = this.props;
 
@@ -195,9 +204,6 @@ class Popconfirm extends Component {
     }
 
 
-    if ("show" in this.props) {
-      overlayProps.rootClose = false;
-    }
     overlayProps.secondPlacement = secondPlacement;
     this._overlay = this.makeOverlay(overlay, overlayProps);
 

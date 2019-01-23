@@ -79,6 +79,11 @@ var propTypes = _extends({}, _Overlay2["default"].propTypes, {
   onClose: _propTypes2["default"].func,
   onCancel: _propTypes2["default"].func,
 
+  /**
+   * @private rootClose关闭时候的回调
+   */
+  onRootClose: _propTypes2["default"].func,
+
   // Overridden props from `<Overlay>`.
   /**
    * @private
@@ -169,7 +174,12 @@ var Popconfirm = function (_Component) {
   };
 
   Popconfirm.prototype.handleHide = function handleHide() {
-    this.hide();
+    var onRootClose = this.props.onRootClose;
+
+    onRootClose && onRootClose();
+    if (!("show" in this.props)) {
+      this.hide();
+    }
   };
 
   Popconfirm.prototype.show = function show() {
@@ -203,7 +213,8 @@ var Popconfirm = function (_Component) {
         onClick = _props.onClick,
         stopbubble = _props.stopbubble,
         secondPlacement = _props.secondPlacement,
-        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble', 'secondPlacement']);
+        onRootClose = _props.onRootClose,
+        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble', 'secondPlacement', 'onRootClose']);
 
     delete props.defaultOverlayShown;
 
@@ -238,9 +249,6 @@ var Popconfirm = function (_Component) {
       triggerProps.onClick = (0, _createChainedFunction2["default"])(triggerProps.onClick, this.handleToggle);
     }
 
-    if ("show" in this.props) {
-      overlayProps.rootClose = false;
-    }
     overlayProps.secondPlacement = secondPlacement;
     this._overlay = this.makeOverlay(overlay, overlayProps);
 

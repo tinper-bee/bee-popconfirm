@@ -8,7 +8,7 @@ import React, {Component} from 'react';
 import Button from 'bee-button';
 import Popconfirm from '../../src';
 
-class Demo1 extends Component {
+class Demo4 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,6 +34,12 @@ class Demo1 extends Component {
         })
     }
 
+    onRootClose = () => {
+        this.setState({
+            show: false
+        })
+    }
+
     render() {
         let {show} = this.state;
         const content = '您喜欢使用tinper-bee组件库吗？';
@@ -50,6 +56,8 @@ class Demo1 extends Component {
                     onClick={() => console.log(1234)}
                     onCancel={this.cancel}
                     onClose={this.close}
+                    rootClose
+                    onRootClose={this.onRootClose}
                 >
                     <Button colors="primary">向右!</Button>
                 </Popconfirm>
@@ -58,4 +66,4 @@ class Demo1 extends Component {
     }
 }
 
-export default Demo1;
+export default Demo4;
