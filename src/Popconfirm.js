@@ -1,5 +1,6 @@
 import React, { cloneElement, Component } from 'react';
 import ReactDOM from 'react-dom';
+import { componentOrElement } from 'tinper-bee-core';
 import createChainedFunction from 'tinper-bee-core/lib/createChainedFunction';
 import splitComponentProps from 'tinper-bee-core/lib/splitComponent';
 import PropTypes from 'prop-types';
@@ -41,6 +42,22 @@ const propTypes = {
    * @private rootClose关闭时候的回调
    */
   onRootClose: PropTypes.func,
+
+   /**
+    * 关闭按钮
+    */
+  close_btn: PropTypes.oneOfType([
+    componentOrElement,
+    PropTypes.func
+  ]),
+
+  /**
+  * 取消按钮
+  */
+  cancel_btn: PropTypes.oneOfType([
+    componentOrElement,
+    PropTypes.func
+  ]),
 
   // Overridden props from `<Overlay>`.
   /**
@@ -167,6 +184,8 @@ class Popconfirm extends Component {
       stopbubble,
       secondPlacement,
       onRootClose,
+      cancel_btn,
+      close_btn,
       ...props
     } = this.props;
 
@@ -180,6 +199,8 @@ class Popconfirm extends Component {
     const overlay = (
            <Confirm
            {...confirmProps}
+           cancel_btn={cancel_btn}
+           close_btn={close_btn}
            onClose={ this.handleClose}
            onCancel= {this.handleCancel}
            stopbubble={stopbubble}

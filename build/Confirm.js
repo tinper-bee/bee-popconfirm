@@ -26,6 +26,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _tinperBeeCore = require('tinper-bee-core');
+
 var _tool = require('bee-locale/build/tool');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -73,6 +75,16 @@ var propTypes = {
      * 阻止冒泡
      */
     stopbubble: _propTypes2["default"].number,
+
+    /**
+    * 关闭按钮
+    */
+    close_btn: _propTypes2["default"].oneOfType([_tinperBeeCore.componentOrElement, _propTypes2["default"].func]),
+
+    /**
+    * 取消按钮
+    */
+    cancel_btn: _propTypes2["default"].oneOfType([_tinperBeeCore.componentOrElement, _propTypes2["default"].func]),
 
     /**
      * Title content
@@ -141,7 +153,9 @@ var Confirm = function (_React$Component) {
             stopbubble = _props.stopbubble,
             secondPlacement = _props.secondPlacement,
             renderPlacement = _props.renderPlacement,
-            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel', 'stopbubble', 'secondPlacement', 'renderPlacement']);
+            cancel_btn = _props.cancel_btn,
+            close_btn = _props.close_btn,
+            props = _objectWithoutProperties(_props, ['placement', 'positionTop', 'positionLeft', 'arrowOffsetTop', 'arrowOffsetLeft', 'clsPrefix', 'trigger', 'title', 'className', 'style', 'children', 'locale', 'onClose', 'color', 'onCancel', 'stopbubble', 'secondPlacement', 'renderPlacement', 'cancel_btn', 'close_btn']);
 
         var local = (0, _tool.getComponentLocale)(this.props, this.context, 'Popconfirm', function () {
             return _i18n2["default"];
@@ -207,13 +221,17 @@ var Confirm = function (_React$Component) {
             _react2["default"].createElement(
                 'div',
                 { className: (0, _classnames2["default"])(clsPrefix + '-confirm') },
-                _react2["default"].createElement(
+                cancel_btn ? (0, _react.cloneElement)(cancel_btn, _extends({}, cancel_btn.props, {
+                    onClick: this.cancel
+                })) : _react2["default"].createElement(
                     _beeButton2["default"],
                     { onClick: this.cancel, size: 'sm', style: { minWidth: 50 },
                         shape: 'border' },
                     local['cancel']
                 ),
-                _react2["default"].createElement(
+                close_btn ? (0, _react.cloneElement)(close_btn, _extends({}, close_btn.props, {
+                    onClick: this.close
+                })) : _react2["default"].createElement(
                     _beeButton2["default"],
                     { onClick: this.close, size: 'sm', style: { minWidth: 50 }, colors: 'primary' },
                     local['ok']

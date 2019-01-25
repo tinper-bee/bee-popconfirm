@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {cloneElement} from 'react';
 import classnames from 'classnames';
 import i18n from './i18n';
 import Button from 'bee-button';
 import PropTypes from 'prop-types';
+import { componentOrElement } from 'tinper-bee-core';
 import {getComponentLocale} from 'bee-locale/build/tool';
 
 
@@ -45,6 +46,22 @@ const propTypes = {
      * 阻止冒泡
      */
     stopbubble: PropTypes.number,
+
+    /**
+    * 关闭按钮
+    */
+    close_btn: PropTypes.oneOfType([
+        componentOrElement,
+        PropTypes.func
+    ]),
+
+    /**
+    * 取消按钮
+    */
+    cancel_btn: PropTypes.oneOfType([
+        componentOrElement,
+        PropTypes.func
+    ]),
 
     /**
      * Title content
@@ -99,6 +116,8 @@ class Confirm extends React.Component {
             stopbubble,
             secondPlacement,
             renderPlacement,
+            cancel_btn,
+            close_btn,
             ...props
         } = this.props;
 
@@ -164,9 +183,27 @@ class Confirm extends React.Component {
                     {children}
                 </div>
                 <div className={classnames(`${clsPrefix}-confirm`)}>
-                    <Button onClick={this.cancel} size='sm' style={{minWidth: 50}}
-                            shape='border'>{local['cancel']}</Button>
-                    <Button onClick={this.close} size='sm' style={{minWidth: 50}} colors='primary'>{local['ok']}</Button>
+                    {
+                        cancel_btn ? (
+                            cloneElement(cancel_btn, {
+                                ...cancel_btn.props,
+                                onClick: this.cancel
+                            })
+                        ) : (
+                            <Button onClick={this.cancel} size='sm' style={{minWidth: 50}}
+                                    shape='border'>{local['cancel']}</Button>
+                        )
+                    }
+                    {
+                        close_btn ? (
+                            cloneElement(close_btn, {
+                                ...close_btn.props,
+                                onClick: this.close
+                            })
+                        ) : (
+                            <Button onClick={this.close} size='sm' style={{minWidth: 50}} colors='primary'>{local['ok']}</Button>
+                        )
+                    }
                 </div>
             </div>
         );

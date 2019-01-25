@@ -16,6 +16,8 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _tinperBeeCore = require('tinper-bee-core');
+
 var _createChainedFunction = require('tinper-bee-core/lib/createChainedFunction');
 
 var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
@@ -83,6 +85,16 @@ var propTypes = _extends({}, _Overlay2["default"].propTypes, {
    * @private rootClose关闭时候的回调
    */
   onRootClose: _propTypes2["default"].func,
+
+  /**
+   * 关闭按钮
+   */
+  close_btn: _propTypes2["default"].oneOfType([_tinperBeeCore.componentOrElement, _propTypes2["default"].func]),
+
+  /**
+  * 取消按钮
+  */
+  cancel_btn: _propTypes2["default"].oneOfType([_tinperBeeCore.componentOrElement, _propTypes2["default"].func]),
 
   // Overridden props from `<Overlay>`.
   /**
@@ -214,7 +226,9 @@ var Popconfirm = function (_Component) {
         stopbubble = _props.stopbubble,
         secondPlacement = _props.secondPlacement,
         onRootClose = _props.onRootClose,
-        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble', 'secondPlacement', 'onRootClose']);
+        cancel_btn = _props.cancel_btn,
+        close_btn = _props.close_btn,
+        props = _objectWithoutProperties(_props, ['content', 'children', 'onClick', 'stopbubble', 'secondPlacement', 'onRootClose', 'cancel_btn', 'close_btn']);
 
     delete props.defaultOverlayShown;
 
@@ -229,6 +243,8 @@ var Popconfirm = function (_Component) {
     var overlay = _react2["default"].createElement(
       _Confirm2["default"],
       _extends({}, confirmProps, {
+        cancel_btn: cancel_btn,
+        close_btn: close_btn,
         onClose: this.handleClose,
         onCancel: this.handleCancel,
         stopbubble: stopbubble,
