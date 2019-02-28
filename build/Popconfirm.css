@@ -24,8 +24,8 @@
   font-size: 14px;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgb(224,224,224);
-  border-radius: 6px;
+  border: 1px solid rgb(165, 173, 186);
+  border-radius: 3px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
   .u-popconfirm-dark {
     background-color: rgb(66,66,66);
@@ -48,27 +48,27 @@
   left: -10px;
   margin-top: -11px;
   border-left-width: 0;
-  border-right-color: rgb(224,224,224); }
+  border-right-color: rgb(165, 173, 186); }
 
 .u-popconfirm.left > .arrow {
   top: 50%;
   right: -10px;
   margin-top: -11px;
   border-right-width: 0;
-  border-left-color: rgb(224,224,224); }
+  border-left-color: rgb(165, 173, 186); }
 
 .u-popconfirm.top > .arrow {
   left: 50%;
   margin-left: -11px;
   border-bottom-width: 0;
-  border-top-color: rgb(224,224,224);
+  border-top-color: rgb(165, 173, 186);
   bottom: -10px; }
 
 .u-popconfirm.bottom > .arrow {
   left: 50%;
   margin-left: -11px;
   border-top-width: 0;
-  border-bottom-color: rgb(224,224,224);
+  border-bottom-color: rgb(165, 173, 186);
   top: -11px; }
 
 .u-popconfirm > .arrow {

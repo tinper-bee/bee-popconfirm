@@ -27,7 +27,7 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid $popconfirm-border-color;
-    border-radius: 6px;
+    border-radius: $border-radius-base;
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
 
     &-dark {
