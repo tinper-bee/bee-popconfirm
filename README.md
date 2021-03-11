@@ -74,7 +74,7 @@ import "./node_modules/bee-popconfirm/build/Popconfirm.css"
 |show|显示隐藏是否受控|bool|-|
 |cancel_btn|自定义的取消按钮|node/function|-|
 |close_btn|自定义的确定按钮|node/function|-|
-
+|noNegativeTop|外层定位的top值是否不允许为负值|bool|-|
 #### 开发调试
 
 ```sh

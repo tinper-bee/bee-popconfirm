@@ -64,6 +64,11 @@ const propTypes = {
     ]),
 
     /**
+    * top值是否不能为负数
+    */
+    noNegativeTop: PropTypes.bool,
+
+    /**
      * Title content
      */
     title: PropTypes.node,
@@ -118,6 +123,7 @@ class Confirm extends React.Component {
             renderPlacement,
             cancel_btn,
             close_btn,
+            noNegativeTop,
             ...props
         } = this.props;
 
@@ -157,18 +163,23 @@ class Confirm extends React.Component {
             [`${clsPrefix}-${color}`]: color,
         };
 
-        const outerStyle = {
+        let outerStyle = {
             display: 'block',
             top: positionTop,
             left: positionLeft,
-            ...style,
+            ...style
         };
-
+        if (outerStyle.top < 0 && noNegativeTop) {
+            outerStyle = {
+                ...outerStyle,
+                top: 0,
+                marginTop: 0
+            }
+        }
         const arrowStyle = {
             top: arrowOffsetTop,
             left: arrowOffsetLeft,
         };
-
 
         return (
             <div
