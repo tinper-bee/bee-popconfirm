@@ -1,3 +1,12 @@
+## [2.0.3](https://github.com/tinper-bee/bee-popconfirm/compare/v2.0.2...v2.0.3) (2021-03-11)
+
+
+### Bug Fixes
+
+* add noNegativeTop attribute ([da222c8](https://github.com/tinper-bee/bee-popconfirm/commit/da222c87083e5269cc1d13f5000d94e40f9a27b5))
+
+
+
 ## [2.0.2](https://github.com/tinper-bee/bee-popconfirm/compare/v2.0.1...v2.0.2) (2020-08-13)
 
 
